@@ -4,5 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse('This is an index view')
+    return HttpResponse('<h1 style="color:crimson">This is an index view</h1>')
     
+def detail(request):
+    return HttpResponse('this is a detail page')
