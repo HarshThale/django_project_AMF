@@ -13,5 +13,5 @@ def index(request):
     
     return render(request, 'food/index.html', context)  #render the request food/index
     
-def detail(request):
-    return HttpResponse('this is a detail page')
+def detail(request, item_id):
+    return HttpResponse('item_id: {}'.format(item_id))
