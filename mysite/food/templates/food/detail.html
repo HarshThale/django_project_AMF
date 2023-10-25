@@ -81,6 +81,8 @@
 
 {% if user.is_authenticated %}
 
+    {% comment %} Red {% endcomment %}
+    
     {% if user.profile.user_type == 'Rest' or user.profile.user_type == 'Admin' %}
 
         {% for obj in hist %}   
