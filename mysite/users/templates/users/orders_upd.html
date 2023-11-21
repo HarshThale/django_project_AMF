@@ -1,1 +1,36 @@
-{{ form }}
+
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<br><br><br>
+
+<div class="container">
+    <div class='col-md-4 offset-md-4'>
+        <div class="card">
+            <div class="card-header text-white bg-info"> 
+                <div class="offset-md-5 card-title">
+                    Update Orders
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                
+                    <label>Product Code: </label>
+                    {{ form.prod_code }}
+
+                    <br><label>Quantity: </label>
+                    {{ form.quantity }}
+
+                    <br><label>User: </label>
+                    {{ form.user }}
+                
+                    <button class="btn btn-danger btn-sm offset-md-5" type="submit">Confirm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
