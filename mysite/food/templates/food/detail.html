@@ -182,7 +182,7 @@
                                 
                                 {% if user.profile.user_type == 'Cust' %}
                                     <a class="btn btn-primary btn-sm"
-                                        href="#">
+                                        href="{% url 'users:buy' item.item_price obj.quantity %}">
                                         Buy now
                                     </a>
                                 {% endif %}

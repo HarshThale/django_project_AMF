@@ -1,0 +1,10 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+<h1>this is an payment success page</h1>
+
+<a href="{% url 'food:index' %}" class="btn btn-success">
+    Back To Home
+</a>
+
+{% endblock %}
