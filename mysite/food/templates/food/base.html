@@ -17,6 +17,16 @@
             Exortillo
         </a>
 
+        {% comment %} this is for search functionality {% endcomment %}
+        <form action="{% url 'food:index' %}" method="GET">
+            {% csrf_token %}
+            <span>
+                <b style="color:white">Search: </b>
+                <input type="search" name="item_name">
+                <button type="submit">Search</button>
+            </span>
+        </form>
+
         <div class="navbar">
             {% if user.is_superuser %}
 
