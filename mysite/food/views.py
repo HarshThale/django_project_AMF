@@ -8,6 +8,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from food.models import History
 from users.models import CusOrders, CusRatingFeedback
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -26,6 +27,11 @@ def index(request):
         item_name = request.GET.get('item_name')
         if item_name != '' and item_name is not None:
             itemlist = Item.objects.filter(item_name__icontains=item_name)
+            
+        # For Pagination 
+        paginator = Paginator(itemlist, 3)
+        page = request.GET.get('page')
+        itemlist = paginator.get_page(page)
         
     elif request.user.is_authenticated and request.user.profile.user_type=='Rest':
         itemlist = Item.objects.filter(for_user=request.user.username)
@@ -34,6 +40,11 @@ def index(request):
         item_name = request.GET.get('item_name')
         if item_name != '' and item_name is not None:
             itemlist = Item.objects.filter(item_name__icontains=item_name)
+            
+        # For Pagination 
+        paginator = Paginator(itemlist, 3)
+        page = request.GET.get('page')
+        itemlist = paginator.get_page(page)
 
     elif request.user.is_authenticated and request.user.profile.user_type=='Cust':
         itemlist = Item.objects.all()
@@ -42,6 +53,11 @@ def index(request):
         item_name = request.GET.get('item_name')
         if item_name != '' and item_name is not None:
             itemlist = Item.objects.filter(item_name__icontains=item_name)
+            
+        # For Pagination 
+        paginator = Paginator(itemlist, 3)
+        page = request.GET.get('page')
+        itemlist = paginator.get_page(page)
         
     else:
         itemlist = Item.objects.all()
@@ -50,6 +66,11 @@ def index(request):
         item_name = request.GET.get('item_name')
         if item_name != '' and item_name is not None:
             itemlist = Item.objects.filter(item_name__icontains=item_name)
+            
+        # For Pagination 
+        paginator = Paginator(itemlist, 3)
+        page = request.GET.get('page')
+        itemlist = paginator.get_page(page)
     
     context = {              #dictionary
         'itemlist':itemlist   #'itemlist': -->key
