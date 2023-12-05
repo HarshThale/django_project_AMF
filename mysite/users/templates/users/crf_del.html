@@ -1,0 +1,14 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+    <p>are you sute you want to delete</p>
+    {{ crfo.prod_code }}
+    <button type="submit">
+        confirm
+    </button>
+</form>
+
+{% endblock %}
