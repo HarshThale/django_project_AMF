@@ -231,3 +231,14 @@ def delete_item(request, id):
         return redirect('food:index')
 
     return render(request, 'food/item-delete.html', context)
+
+
+# navbar form
+#---------------------------------------------------------------------------------------------------------
+def Navform(request):
+    
+    path = request.GET.get('item_name')
+    nfd = request.GET.get('navformdata')
+    print(nfd)
+
+    return redirect(str(path))

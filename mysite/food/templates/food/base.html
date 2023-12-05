@@ -17,14 +17,23 @@
             Exortillo
         </a>
 
+        {% comment %} path of the current page {% endcomment %}
+        <form action="{% url 'food:navform' %}" method="GET">
+            {% csrf_token %}
+            <span><b style="color:white">Form: </b></span>
+            <input type="text" name="navformdata">
+            <input hidden type="text" name="item_name" value="{{ request.path }}">
+            <button type="submit">submit</button>
+        </form>
+
         {% comment %} this is for search functionality {% endcomment %}
         <form action="{% url 'food:index' %}" method="GET">
             {% csrf_token %}
             <span>
-                <b style="color:white">Search: </b>
+                <b style="color:white">Search: </b></span>
                 <input type="search" name="item_name">
-                <button type="submit">Search</button>
-            </span>
+                <button type="submit" class="btn btn-success">Search</button>
+            
         </form>
 
         <div class="navbar">
